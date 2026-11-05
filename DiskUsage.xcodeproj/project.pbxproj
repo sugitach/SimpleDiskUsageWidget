@@ -1,0 +1,250 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 77;
+	objects = {
+		100000000000000000000001 = {
+			isa = PBXProject;
+			attributes = { LastUpgradeCheck = 2720; };
+			buildConfigurationList = 10000000000000000000000A;
+			developmentRegion = ja;
+			hasScannedForEncodings = 0;
+			knownRegions = (ja, en, Base);
+			mainGroup = 100000000000000000000003;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 100000000000000000000005;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (100000000000000000000002, 100000000000000000000020);
+		};
+		100000000000000000000002 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10000000000000000000000B;
+			buildPhases = (100000000000000000000007, 10000000000000000000002D, 100000000000000000000028);
+			buildRules = ();
+			dependencies = (100000000000000000000029);
+			fileSystemSynchronizedGroups = (100000000000000000000004, 10000000000000000000002C);
+			name = DiskUsage;
+			productName = DiskUsage;
+			productReference = 100000000000000000000006;
+			productType = "com.apple.product-type.application";
+		};
+		100000000000000000000003 = {
+			isa = PBXGroup;
+			children = (100000000000000000000004, 100000000000000000000022, 10000000000000000000002C, 100000000000000000000005);
+			sourceTree = "<group>";
+		};
+		100000000000000000000004 = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DiskUsage;
+			sourceTree = "<group>";
+		};
+		100000000000000000000005 = {
+			isa = PBXGroup;
+			children = (100000000000000000000006, 100000000000000000000021);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		100000000000000000000006 = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			path = DiskUsage.app;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		100000000000000000000007 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10000000000000000000000A = {
+			isa = XCConfigurationList;
+			buildConfigurations = (100000000000000000000010, 100000000000000000000011);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10000000000000000000000B = {
+			isa = XCConfigurationList;
+			buildConfigurations = (100000000000000000000012, 100000000000000000000013);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		100000000000000000000010 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ENABLE_TESTABILITY = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		100000000000000000000011 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		100000000000000000000012 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CURRENT_PROJECT_VERSION = 5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "ディスク容量";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = local.diskusage.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		100000000000000000000013 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CURRENT_PROJECT_VERSION = 5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "ディスク容量";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = local.diskusage.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		100000000000000000000020 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 100000000000000000000026;
+			buildPhases = (100000000000000000000025, 10000000000000000000002E);
+			buildRules = ();
+			dependencies = ();
+			fileSystemSynchronizedGroups = (100000000000000000000022, 10000000000000000000002C);
+			name = DiskUsageWidget;
+			productName = DiskUsageWidget;
+			productReference = 100000000000000000000021;
+			productType = "com.apple.product-type.app-extension";
+		};
+		100000000000000000000021 = {
+			isa = PBXFileReference;
+			explicitFileType = "wrapper.app-extension";
+			path = DiskUsageWidget.appex;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		100000000000000000000022 = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (100000000000000000000023);
+			path = DiskUsageWidget;
+			sourceTree = "<group>";
+		};
+		100000000000000000000023 = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (Info.plist, DiskUsageWidget.entitlements);
+			target = 100000000000000000000020;
+		};
+		100000000000000000000024 = {
+			isa = PBXBuildFile;
+			fileRef = 100000000000000000000021;
+			settings = { ATTRIBUTES = (RemoveHeadersOnCopy); };
+		};
+		100000000000000000000025 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		100000000000000000000026 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (100000000000000000000027, 10000000000000000000002B);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		100000000000000000000027 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = DiskUsageWidget/DiskUsageWidget.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CURRENT_PROJECT_VERSION = 5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DiskUsageWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ディスク容量";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = local.diskusage.widget.extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		100000000000000000000028 = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (100000000000000000000024);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		100000000000000000000029 = {
+			isa = PBXTargetDependency;
+			target = 100000000000000000000020;
+			targetProxy = 10000000000000000000002A;
+		};
+		10000000000000000000002A = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 100000000000000000000001;
+			proxyType = 1;
+			remoteGlobalIDString = 100000000000000000000020;
+			remoteInfo = DiskUsageWidget;
+		};
+		10000000000000000000002B = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = DiskUsageWidget/DiskUsageWidget.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CURRENT_PROJECT_VERSION = 5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DiskUsageWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ディスク容量";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = local.diskusage.widget.extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		10000000000000000000002C = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		10000000000000000000002D = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10000000000000000000002E = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+	};
+	rootObject = 100000000000000000000001;
+}

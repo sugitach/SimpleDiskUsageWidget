@@ -1,0 +1,150 @@
+{
+  "sourceLanguage": "ja",
+  "strings": {
+    "ディスク容量": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disk Usage"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ディスク容量"
+          }
+        }
+      }
+    },
+    "ボリュームの空き容量を表示します。下段の矢印ボタンで表示先を切り替えます。": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shows available space on your volumes. Click the arrow on the bottom row to switch volumes."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ボリュームの空き容量を表示します。下段の矢印ボタンで表示先を切り替えます。"
+          }
+        }
+      }
+    },
+    "全容量 %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全容量 %@"
+          }
+        }
+      }
+    },
+    "外付けドライブ": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "External Drive"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "外付けドライブ"
+          }
+        }
+      }
+    },
+    "書き込み可能なボリュームがありません": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No writable volumes"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "書き込み可能なボリュームがありません"
+          }
+        }
+      }
+    },
+    "次のボリューム": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next Volume"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "次のボリューム"
+          }
+        }
+      }
+    },
+    "空き %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ free"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "空き %@"
+          }
+        }
+      }
+    },
+    "空き %@（%@）": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Free %1$@ (%2$@)"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "空き %@（%@）"
+          }
+        }
+      }
+    },
+    "空き容量 %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Free %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "空き容量 %@"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
