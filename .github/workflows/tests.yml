@@ -1,0 +1,29 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  macos-tests:
+    name: macOS tests
+    runs-on: macos-26
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run unit and UI tests
+        run: |
+          xcodebuild -version
+          xcodebuild -project DiskUsage.xcodeproj -scheme DiskUsage \
+            -destination 'platform=macOS' -parallel-testing-enabled NO \
+            -resultBundlePath TestResults.xcresult test
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: macOS-test-results
+          path: TestResults.xcresult
+          if-no-files-found: ignore

@@ -33,6 +33,22 @@
         }
       }
     },
+    "使用済み %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ used"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用済み %@"
+          }
+        }
+      }
+    },
     "全容量 %@": {
       "localizations": {
         "en": {

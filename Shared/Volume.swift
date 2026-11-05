@@ -13,6 +13,16 @@ struct Volume: Identifiable, Sendable {
     }
 }
 
+extension Volume {
+    init?(id: String, name: String, isInternal: Bool, isReadOnly: Bool?, totalBytes: Int?, freeBytes: Int?) {
+        guard isReadOnly == false, let totalBytes, totalBytes > 0, let freeBytes else { return nil }
+        self.init(
+            id: id, name: name, isInternal: isInternal,
+            totalBytes: Int64(totalBytes), freeBytes: Int64(min(max(freeBytes, 0), totalBytes))
+        )
+    }
+}
+
 struct VolumeSnapshot: Sendable {
     let primary: Volume?
     let secondary: Volume?
@@ -22,6 +32,8 @@ struct VolumeSnapshot: Sendable {
 actor VolumeReader {
     static let shared = VolumeReader()
 
+    private let loadVolumes: @Sendable () -> [Volume]
+    private let defaults: UserDefaults
     private let selectionKey = "selectedSecondaryVolume"
     private static let logger = Logger(subsystem: "local.diskusage.widget", category: "VolumeReader")
     private static let keys: Set<URLResourceKey> = [
@@ -33,10 +45,15 @@ actor VolumeReader {
         .volumeAvailableCapacityKey,
     ]
 
+    init(loadVolumes: (@Sendable () -> [Volume])? = nil, selectionSuite: String? = nil) {
+        self.loadVolumes = loadVolumes ?? Self.readMountedVolumes
+        self.defaults = selectionSuite.flatMap(UserDefaults.init(suiteName:)) ?? .standard
+    }
+
     func snapshot() -> VolumeSnapshot {
-        let volumes = read()
+        let volumes = loadVolumes()
         let choices = volumes.dropFirst()
-        let selected = UserDefaults.standard.string(forKey: selectionKey)
+        let selected = defaults.string(forKey: selectionKey)
         return VolumeSnapshot(
             primary: volumes.first,
             secondary: choices.first { $0.id == selected } ?? choices.first,
@@ -45,17 +62,17 @@ actor VolumeReader {
     }
 
     func selectNext() {
-        let choices = read().dropFirst()
+        let choices = loadVolumes().dropFirst()
         guard choices.count > 1 else { return }
 
-        let selected = UserDefaults.standard.string(forKey: selectionKey)
+        let selected = defaults.string(forKey: selectionKey)
         let current = choices.firstIndex { $0.id == selected } ?? choices.startIndex
         let next = choices.index(after: current)
         let nextVolume = choices[next == choices.endIndex ? choices.startIndex : next]
-        UserDefaults.standard.set(nextVolume.id, forKey: selectionKey)
+        defaults.set(nextVolume.id, forKey: selectionKey)
     }
 
-    private func read() -> [Volume] {
+    private static func readMountedVolumes() -> [Volume] {
         let startup = URL(fileURLWithPath: "/", isDirectory: true)
         let mounted = FileManager.default.mountedVolumeURLs(
             includingResourceValuesForKeys: Array(Self.keys),
@@ -83,11 +100,8 @@ actor VolumeReader {
         return volumes
     }
 
-    private func volume(at url: URL) -> Volume? {
-        guard let values = try? url.resourceValues(forKeys: Self.keys),
-              values.volumeIsReadOnly == false,
-              let total = values.volumeTotalCapacity, total > 0,
-              let free = values.volumeAvailableCapacity else {
+    private static func volume(at url: URL) -> Volume? {
+        guard let values = try? url.resourceValues(forKeys: Self.keys) else {
             return nil
         }
 
@@ -95,8 +109,9 @@ actor VolumeReader {
             id: values.volumeUUIDString ?? url.path,
             name: values.volumeLocalizedName ?? url.lastPathComponent,
             isInternal: values.volumeIsInternal == true,
-            totalBytes: Int64(total),
-            freeBytes: Int64(min(max(free, 0), total))
+            isReadOnly: values.volumeIsReadOnly,
+            totalBytes: values.volumeTotalCapacity,
+            freeBytes: values.volumeAvailableCapacity
         )
     }
 }
